@@ -1,0 +1,101 @@
+@font-face{
+	font-family: BPB;
+	src: url(./font/Blender-Pro-Bold.otf);
+}
+
+@font-face{
+	font-family: BPM;
+	src: url(./font/Blender-Pro-Medium.otf);
+}
+
+html{
+    background-color: #f9f400;
+    background-image: url("./img/bg.png");
+    webkit-background-size: cover; 
+    background-size: cover;
+}
+
+body{
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+
+#clockdiv{
+    transform: translate(0%, 40%);
+}
+
+#clockdiv > div{
+  padding: 10px;
+	line-height:75%;
+	font-family:BPB;
+	font-size:10vw;
+}
+
+#block > div{
+    line-height: 1.1;
+}
+
+
+.smalltext{
+	line-height:75%;
+	font-family:BPB;
+	font-size:1.8vw;
+    line-height: 1.8 !important;
+}
+
+img{
+    margin: auto;
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    top: -20%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#block {
+	width:15vw;
+	height:15vw;
+	padding:1vw;
+	display:inline-block;
+	margin:1vw;
+	text-align:center;
+	font-size:2.5vw;
+	background-image:url("./img/border.svg");
+	background-size:cover;
+    font-family: BPM;
+    color: #000;
+}
+
+.days {
+	border-top:1px solid;
+}
+
+.hours {
+	border-top:1px solid;
+}
+
+.minutes {
+	border-top:1px solid;
+}
+
+.seconds {
+	border-top:1px solid;
+}
+
+.milliseconds {
+	border-top:1px solid;
+}
+
+.microseconds {
+	border-top:1px solid;
+}
+
+.nanoseconds {
+	border-top:1px solid;
+}
+
