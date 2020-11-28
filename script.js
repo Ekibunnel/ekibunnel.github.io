@@ -2,15 +2,16 @@ const starttime = new Date();
 const deadline = new Date(Date.parse("2020-12-10T01:59:59+0200"));
 
 function getTimeRemaining() {
-  const diff = Math.floor(window.performance.now()*1000000);
-  var days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds;
-  var total = Date.parse(deadline)*1000000 - (starttime*1000000 + diff);
+  const diff = Math.floor(window.performance.now()*1000000000);
+  var days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds, picoseconds;
+  var total = Date.parse(deadline)*1000000000 - (starttime*1000000000 + diff);
   if (total <= 0) {
-    total = days = hours = minutes = seconds = milliseconds = microseconds = nanoseconds = 0;
+    total = days = hours = minutes = seconds = milliseconds = microseconds = nanoseconds = picoseconds = 0;
   } else {
-    nanoseconds = Math.floor(total % 1000);
-    microseconds = Math.floor((total / 1000) % 1000);
-    milliseconds = Math.floor((total / 1000000) % 1000);
+    picoseconds = Math.floor(total % 1000);
+    nanoseconds = Math.floor((total / 1000) % 1000);
+    microseconds = Math.floor((total / 1000000) % 1000);
+    milliseconds = Math.floor((total / 1000000000) % 1000);
     seconds = Math.floor((total / 1000000000) % 60);
     minutes = Math.floor((total / 1000000000 / 60) % 60);
     hours = Math.floor((total / (1000000000 * 60 * 60)) % 24);
@@ -24,7 +25,8 @@ function getTimeRemaining() {
     seconds,
     milliseconds,
     microseconds,
-    nanoseconds
+    nanoseconds,
+    picoseconds
   };
 }
 
@@ -37,6 +39,7 @@ function updateClock() {
   millisecondsSpan.innerHTML = ('00' + t.milliseconds).slice(-3);
   microsecondsSpan.innerHTML = ('00' + t.microseconds).slice(-3);
   nanosecondsSpan.innerHTML = ('00' + t.nanoseconds).slice(-3);
+  picosecondsSpan.innerHTML = ('00' + t.picoseconds).slice(-3);
   if (t.total > 0) {
     window.requestAnimationFrame(updateClock)
   }
@@ -51,6 +54,7 @@ function initializeClock(id) {
   window.millisecondsSpan = clock.querySelector('.milliseconds');
   window.microsecondsSpan = clock.querySelector('.microseconds');
   window.nanosecondsSpan = clock.querySelector('.nanoseconds');
+  window.picosecondsSpan = clock.querySelector('.picoseconds');
 
   updateClock();
   window.requestAnimationFrame(updateClock);
