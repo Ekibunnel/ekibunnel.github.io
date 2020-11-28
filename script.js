@@ -12,10 +12,10 @@ function getTimeRemaining() {
     nanoseconds = Math.floor((total / 1000) % 1000);
     microseconds = Math.floor((total / 1000000) % 1000);
     milliseconds = Math.floor((total / 1000000000) % 1000);
-    seconds = Math.floor((total / 1000000000) % 60);
-    minutes = Math.floor((total / 1000000000 / 60) % 60);
-    hours = Math.floor((total / (1000000000 * 60 * 60)) % 24);
-    days = Math.floor(total / (1000000000 * 60 * 60 * 24));
+    seconds = Math.floor((total / 1000000000000) % 60);
+    minutes = Math.floor((total / 1000000000000 / 60) % 60);
+    hours = Math.floor((total / (1000000000000 * 60 * 60)) % 24);
+    days = Math.floor(total / (1000000000000 * 60 * 60 * 24));
   }
   return {
     total,
